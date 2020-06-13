@@ -1,0 +1,32 @@
+//https://www.interviewbit.com/problems/min-steps-in-infinite-grid/
+
+public class Solution {
+    public int coverPoints(ArrayList<Integer> A, ArrayList<Integer> B) {
+    // Get current x and y
+    int curX = A.get(0);
+    int curY = B.get(0);
+    // Counter
+    int count = 0;
+
+    for (int i = 1; i < A.size(); i++) {
+        // Get destination x and y
+        int dstX = A.get(i);
+        int dstY = B.get(i);
+
+        // While we are not at the target position
+        while (curX != dstX || curY != dstY) {
+            // Check x
+            if (curX < dstX) curX++;
+            else if (curX > dstX) curX--;
+
+            // Check y
+            if (curY < dstY) curY++;
+            else if (curY > dstY) curY--;
+
+            count++;
+        }
+    }
+
+    return count;
+}
+    }
